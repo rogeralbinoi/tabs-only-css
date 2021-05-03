@@ -1,6 +1,62 @@
+body {
+  background: #0A060F;
+}
+
+p {
+  font-size: 1.3em;
+  line-height: 1.4;
+}
+
+.tabs-wrapper {
+  max-width: 1024px;
+  margin: 1em auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template:
+    'nav nav nav nav nav nav'
+    'content content content content content content'
+    'content content content content content content'
+    'content content content content content content';
+}
+
 .tab {
+  padding: .3em 1em;
+  background: #fff;
+  grid-area: content;
+}
+
+.tab-nav-label {
+  display: inline-block;
+  background: #00FF90;
+  border: 2px solid #00FF90;
+  color: #0A060F;
+  text-decoration: none;
+  padding: .3em 1em;
+  border-bottom: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tab-nav-link:hover {
+  border-color:  #0A060F;
+}
+/* checkbox hack */
+.tab-radio {
   display: none;
 }
-.tab:target {
-  display: block;
+
+.tab {
+  visibility: hidden;
+}
+
+.tab-radio:checked + .tab-nav-label {
+  background: #00FF90;
+  border: 2px solid #00FF90;
+  background: #fff;
+  border: 2px solid #fff;
+}
+
+.tab-radio:checked + .tab-nav-label + .tab {
+  visibility: visible;
 }
